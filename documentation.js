@@ -108,8 +108,11 @@ const enum ErrorCode : Int {
     	firstname: "",
     	lastName: "",
     	userName: "",
+	gender: "",
     	password: "",
     	dateOfBirth: "",
+	tel: "",
+	email: ""			
     }
 }
 
