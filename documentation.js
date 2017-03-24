@@ -16,6 +16,9 @@ const enum JSONAPIMethods : Int {
     Register = 4
     RegisterResult = 5
 
+    ChangePassword = 10
+    ChangePasswordResult = 11
+
     GetTours = 6
     GetToursResult = 7
 
@@ -29,7 +32,8 @@ const enum ErrorCode : Int {
     unknowError = 1,
     userNameOrPasswordIsIncorect = 2,
     sesionTimeOut = 3,
-    invalidJson = 4
+    invalidJson = 4,
+    passwordIsIncorrect = 5
 }
 
 
@@ -126,8 +130,35 @@ const enum ErrorCode : Int {
     errorCode: ErrorCode.invalidJson, 
     message: "" 
 }
+////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\ChangePassword\\\\\\\\\\\\\\\\\\\\////////////////////////
+{
+    method: JSONAPIMethods.ChangePassword,
+
+    params: 
+    {
+        oldPassword: "",
+        newPassword: "",
+        sessionId: ""
+    }
+}
 
 
+//responseMessage
+{
+    method: JSONAPIMethods.ChangePasswordResult,
+    params:
+    {
+        success: true // an false
+        
+    },
+    errorCode: ErrorCode.Success
+}
+    //პრობლემის შემთხვევა responseMessage 
+{
+    method: JSONAPIMethods.ChangePasswordResult, 
+    errorCode: ErrorCode.passwordIsIncorrect, 
+    message: "" 
+}
 ////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\*******////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
 enum RoadType : Int
 {
